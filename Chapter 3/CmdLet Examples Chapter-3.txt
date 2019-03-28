@@ -1,0 +1,21 @@
+Get-Help EventLog | Format-Table -Autosize
+Get-EventLog system -Newest 20
+Get-EventLog application -Newest 20
+Get-EventLog security -Newest 20
+
+Get-Eventlog -LogName system -Newest 20 | Select-Object -Property TimeGenerated, Source, EntryType, Message | where {$_.EntryType -eq "warning" -or $_.EntryType -eq "error"} 
+
+$targetComputer = "Enter Computer Name Here"
+$credential = $targetComputer+"/"+"Enter User Name Here"
+Enter-PSSession -ComputerName $targetComputer -Credentials $credential
+
+Get-Help Get-ItemProperty
+
+Get-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\*\* | Select FriendlyName 
+
+Get-Help Invoke-Command
+
+Invoke-Command -ComputerName $targetComputer -Credential $credential -ScriptBlock{Get-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Enum\USBSTOR\*\* | Select FriendlyName}
+
+
+

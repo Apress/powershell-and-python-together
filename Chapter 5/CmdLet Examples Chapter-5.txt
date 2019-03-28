@@ -1,0 +1,15 @@
+PowerShell CmdLet Examples
+
+Get-Help Enable-PSRemoting
+Enable-PSRemoting -Force
+
+Get-Help Get-DnsClientCache
+Get-DnsClientCache | Get-Member
+Get-DnsClientCache | Select-Object -Property Entry
+Get-DnsClientCache | Select-Object -Property Entry, TimetoLive
+
+Invoke-Command -ComputerName YOUR-COMPUTER -Credential YOUR-USERNAME -ScriptBlock {Get-DnsClientCache | Select-Object -Property Entry |Out-String} 
+
+Get-Help .\CacheAcquire.ps1
+
+

@@ -1,0 +1,18 @@
+Chapter 1: Contains only PowerShell CmdLet Examples, for easy copy and paste they are included here:
+
+Update-Help
+Get-Help services
+Get-Help Get-Service
+Get-Help Get-Service -Detailed
+Get-Help Get-Service -Examples
+Get-Help Get-Process
+Get-Process 
+Get-Process -Name Chrome
+Get-Process | Get-Member
+Get-Service | Select-Object -Property Name, Status, StartType
+Get-Alias dir
+Get-Help ip
+Get-NetIPAddress
+Get-NetIPConfiguration
+Get-NetIPInterface
+

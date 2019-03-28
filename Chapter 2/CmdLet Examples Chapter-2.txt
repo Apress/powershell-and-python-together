@@ -1,0 +1,37 @@
+CmdLet Examples in Chapter 2
+
+Get-Service | Where-Object {$_.Status -eq "Running"} | Format-Table -AutoSize
+Get-Service | Where-Object {$_.Status -eq "Stopped"} | Format-Table -AutoSize
+Get-Help Format-Table
+
+$InvestigatorName = "Chet Hosmer"
+$CaseNumber = "BC-0234"
+
+$PSHOME
+$env:COMPUTERNAME
+$env:NUMBER_OF_PROCESSORS
+
+$id = Get-Process -Name Chrome| select -ExpandProperty Id
+Get-NetTCPConnections 
+$id = a valid process id
+Get-NetTCPConnection -State Established -OwningProcess $id | Format-Table -Autosize
+Get-Help ForEach-Object
+
+Get-Process -Name Chrome | ForEach-Object {Get-NetTCPConnection -State Established -OwningProcess $_.Id -ErrorAction SilentlyContinue}| Format-Table -Autosize
+
+Resolve-DnsName 72.21.207.216 
+
+Start-Transcript
+Stop-Transcript
+
+Note the directory c:\PS-TRANSCRIPTS must exist
+Start-Transcript -Path c:\PS-TRANSCRIPTS\DEMO.TXT
+
+
+
+
+
+
+
+
+

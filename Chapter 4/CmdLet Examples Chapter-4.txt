@@ -1,0 +1,18 @@
+Chapter 4- Python and PowerShell Command Examples
+
+Python Snips
+runningProcesses = subprocess.check_output("powershell -Executionpolicy ByPass -Command Get-Process")
+print(runningProcess.decode())
+
+
+PowerShell Snips
+Get-ChildItem c:\windows\system32\drivers\ | 
+Get-FileHash | Select-object -Property Hash, Path | Format-Table -HideTableHeaders 
+Get-Help Get-ChildItem
+
+Note: Command works from the same folder that the script HashAcquire.ps1 is in
+Set-Location c:\...  Set the path to that folder in PowerShell
+Get-Help .\HashAcquire.ps1
+
+To execute the PowerShell Script, either use the PowerShell ISE or from the Windows Command Line again navigate to the folder where the HashAcquire.ps1 script is located:
+.\HashAcquire.ps1
